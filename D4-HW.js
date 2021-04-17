@@ -12,12 +12,20 @@ What you have to do is:
 0) Get all the products from the API using a fetch DONE
 */
 let books = []
+let checkout = {
+    basket:[],
+    quantity:0,
+    total: 0
+}
+
+// console.log(checkout)
+// checkout.basket.push('hello')
+// console.log(checkout)
+
 window.onload = function(){
 
     fetch("https://striveschool-api.herokuapp.com/books")
     .then(response => response.json())
-
-
 
 /*
 1) Display the list of items available on the page using template literals `` and .forEach DONE
@@ -46,52 +54,69 @@ window.onload = function(){
     // items.forEach(item => console.log(item.img))
    
     books.push(...items)
-   
+   console.log(books)
         items.forEach(item => {
-           
             let div = document.createElement('div')
-            div.classList.add('col-12','col-md-6', 'my-5')
-          
+            div.classList.add('col-6','col-md-3', 'my-5')
             div.innerHTML = `
             <dd class="book">
                 <div class="card h-100">
                     <img class="img-fluid" src= "${item.img}">
                     <div class="card-body p-0 justify-content-center">
                     <div class="card-header">${item.title}</div>
-                    <a class="btn btn-primary mt-auto">add to cart</a>
+                    <div class="lead text-center py-4"> £${item.price}</div>
+                    <a class="btn btn-light mt-auto w-100" style="border-radius:0">add to cart</a>
                     </div>
                 </div>
             </dd>
                    `
             list[0].appendChild(div)
         })
-   
+
+        addToCart(items)
+        return items
 })
-
-
-.then(list =>{
-    console.log(books)
-    let list1 = document.querySelector('list[0]')
-    let btn = document.querySelectorAll('a .btn')
-    for(let i =0; i< books.length; i++){
-    btn.addEventListener("click",()=>{
-        list1.removeChild(book[i])
-
-    })
-}
-} )
-
-
-
-
-
-
 
 
 .catch(err => console.log(err))
 }
 
 
+const addToCart = (item) =>{
+
+let btn = document.getElementsByClassName('btn')
+let cart = document.getElementById('cart')
+let quantity = document.getElementById('quantity')
+let total = document.getElementById('total')
+
+
+    for(let i = 0; i < books.length; i++){
+        btn[i].addEventListener('click',(event) =>{
+           
+                checkout.basket.push(books[i].title + ": "+ "&#163"+ books[i].price)
+
+                checkout.total += books[i].price
+                total.innerText = checkout.total
+
+                checkout.quantity += 1
+                quantity.innerText = checkout.quantity
+           
+
+    cart.innerHTML += `
+    <dd class="book, col-12">
+            <dd class="lead p-0 justify-content-center">${books[i].title + ": "+ books[i].price}</dd>
+            </div>
+        </div>
+    </dd>
+           `
+
+
+    
+        })
+    }
+
+    
+}
 
 
 /*
