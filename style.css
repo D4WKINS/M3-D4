@@ -1,5 +1,53 @@
-
+*{
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Dosis', sans-serif;
+}
+@font-face {
+    font-family: 'dosis';
+    src: url('https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700;800&display=swap');;
+}
 #cart{
     max-height:500px;
     overflow-y: scroll;
 }
+
+#search-bar{
+    outline:none;
+  
+    border:none;
+    outline: none;
+    font-family: 'Dosis', sans-serif;
+    font-weight:700;
+    color: black;
+    height: 36px;
+  
+}
+
+@media(min-width: 769px){
+    .book-img{
+    max-height: 320px;
+}
+
+.jumbotron{
+background: 
+    /* top, transparent red, faked with gradient */ 
+    linear-gradient(
+    rgba(0, 0, 0, .6), 
+    rgba(0, 0, 0, .6)
+    ),
+    /* bottom, image */
+    url(bookshelf.jpg);
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size:cover;
+    color:white;
+    background-attachment:fixed;
+}
+
+.jumbotron-content> div:nth-child(1){
+    font-weight:700;
+}
+

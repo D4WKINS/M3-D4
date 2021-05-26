@@ -2,31 +2,51 @@
 <!-- saved from url=(0436)https://s3.eu-west-1.amazonaws.com/eduflow-production/activity-resources/399457608324678.html?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA2TAWW44RDWPS6YGR%2F20210415%2Feu-west-1%2Fs3%2Faws4_request&X-Amz-Date=20210415T114005Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&response-content-disposition=inline%3B%20filename%2A%3DUTF-8%27%27M3-D4.html&X-Amz-Signature=7e1b175479e6503ee0297f92f81a97f68e94c8d3b8e838517fa6b7ca1608f395 -->
 <html><head>
     <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous"> 
+    <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 </head>
-<body>
-    
-    <div class="container-fluid p-5" >
-        <!-- <div class="card-deck" id="list">
+<body style="background-color:black">
+    <nav class="navbar navbar-light  justify-content-between" style="background-color:rgb(0, 0, 0)">
+        <a class="navbar-brand"><img class="ml-4 " src="storytelling.svg" style="background-color:transparent;" width="50px" height="50px"/> </a>
+        <h3 class="text-white mr-auto">Strive Library</h3>
+       
+      </nav>
+
+      <div class="jumbotron jumbotron-fluid ">
+          <div class="jumbotron-content container">
+        <div class="display-4 mb-3 ">Dreams, Hopes and Stories...</div>
+
+        <!-- <div class="w-100 p-3 rounded-sm" style="background-color: #ad77e3;">
+        <h2 class="lead">Theres a book with your name on it </h2>
+        <ul>
+            <li> E-Books </li>
+            <li >Audio-Books </li>
+            <li> Paperbacks </li>
+        </ul>
         </div> -->
-            <div class="row" >
-                <dl  class="col-12 col-md-9 list bg-success p-5 border-right border-white rounded">
-                    <dt><h2 class="text-white text-left"> Recommended </h2></dt>
-                    <div class="row" >
-                        </div>
-                </dl>
+        <form class="form-inline justify-content-center " style="transform: translateY(85px);">
+            <input id="search-bar"  class="form-control shadow" type="search" style="  border-top-right-radius:0px; border-bottom-right-radius:0px;" placeholder="Search" aria-label="Search">
+            <button class="btn text-white  border-0 my-2 my-sm-0 shadow" height="50px" style="background-color:#fabe2c;  border-top-left-radius:0px; border-bottom-left-radius:0px;" type="submit"><i class="fas fa-search"></i></button>
+          </form>
 
-                <dl  class="col-12 col-md-3 list bg-primary p-5 border-left border-white rounded">
-                    <dt><h2 class="text-white text-left"> Cart: 0</h2></dt>
-                    <div class="row" >
-
-                    </div>
-                </dl>
+        <!-- <hr class="my-4"> -->
+        <!-- <p class="lead">
+          <a class="btn btn-primary btn-lg" href="#" role="button" style="background-color:#fabe2c; border: none;">Open Sesame!</a>
+        </p> -->
+    </div>
+      </div>
+    <div class="container my-5" style="background-color:black" >
+        <div class="card-deck" id="book-page" >
+           
             </div>
+            
         </div>
    
 
-<script>
+<!-- <script>
   /*
 You are creating the "shopping cart experience" for a Online Marketplace.
 You have the list of the available books from the current API:
@@ -161,7 +181,8 @@ let list = document.querySelectorAll('.list .row')
 /*
 10) In page "detail" show some details of the selected product (https://striveschool-api.herokuapp.com/books/1940026091 to fetch the details of a specific book)
 */
-</script>
+</script> -->
+<script src="D4-HW.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
 </body>
