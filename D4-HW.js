@@ -24,34 +24,42 @@ What you have to do is:
 */
 
 window.onload = function(){
-
-    
-
     fetch("https://striveschool-api.herokuapp.com/books")
     .then(response => response.json())
 
-.then(data=> {
-    console.log(data)
-displayBooks(data)
-        return data
-})
+    .then(data=> {
+        console.log(data)
+    displayBooks(data)
+            return data
+    })
 
 
-.catch(err => console.log(err))
-}
+    .catch(err => console.log(err))
+    }
 
 
 function displayBooks(books){
     const main = document.getElementById("book-page")
     const search = document.getElementById("search-bar")
 
-    
+    books.forEach(book => {
+        main.innerHTML+= `
+            <div class="col-12 col-md-4 col-lg-3 my-3 h-100 align-items-stretch ">
+                <div class="card  h-100 shadow" style="border-color:transparent">
+                    <img class="img-fluid book-img" src= "${book.img}">
+                    <div class="card-body p-0 justify-content-center">
+                    <a class="book-title" href="details.html?id=${book.asin}"><p class="mb-0 p-3">${book.title}</p></a> 
+                    <div class="lead text-center "> £${book.price}</div>
+                    <a class="btn  text-white mt-auto w-100" style="background-color:#fabe2c;border-radius:0">add to cart</a>
+                    </div>
+                </div>
+                    `
+            })
+
     search.addEventListener("keyup" ,(e) => {
-
-        if(e.target.value.length > 2){
-           
-     books.filter(book => book.title.includes(e.target.value))
-
+    if(e.target.value.length > 2){
+     const filtered = books.filter(book => book.title.includes(e.target.value))
+    
      console.log(filtered)
      main.innerHTML = ""
      filtered.forEach(book => {
@@ -60,16 +68,32 @@ function displayBooks(books){
                 <div class="card">
                     <img class="img-fluid book-img" src= "${book.img}">
                     <div class="card-body p-0 justify-content-center">
-                    <div class="card-header">${book.title}</div>
+                    <a  href="details.html?id=${book.asin}">${book.title}</a> 
                     <div class="lead text-center "> £${book.price}</div>
-                    <a class="btn bg-dark text-white mt-auto w-100" style="border-radius:0">add to cart</a>
+                    <a class="btn text-white mt-auto w-100" style="background-color:#fabe2c; border-radius:0">add to cart</a>
                     </div>
                 </div>
                     `
             })
         }
+        else if(e.target.value.length < 2){
+            main.innerHTML = ""
+            books.forEach(book => {
+               
+                main.innerHTML+= `
+                    <div class="col-12 col-md-4 col-lg-3 my-3  align-items-stretch ">
+                        <div class="card">
+                            <img class="img-fluid book-img" src= "${book.img}">
+                            <div class=" card-body p-0 justify-content-center ">
+                            <a  href="details.html?id=${book.asin}">${book.title}</a> 
+                            <div class=" lead text-center "> £${book.price}</div>
+                            <a class="btn text-white mt-auto w-100" style="background-color:#fabe2c;border-radius:0">add to cart</a>
+                            </div>
+                        </div>
+                            `
+            })
+        }
     })
-  
 }
 
 

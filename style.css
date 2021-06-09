@@ -25,10 +25,7 @@ body{
   
 }
 
-@media(min-width: 769px){
-    .book-img{
-    max-height: 320px;
-}
+
 
 .jumbotron{
 background: 
@@ -49,5 +46,14 @@ background:
 
 .jumbotron-content> div:nth-child(1){
     font-weight:700;
+}
+.book-title{
+    color:rgba(0,0,0,.7);
+}
+
+@media(min-width: 769px){
+    .book-img{
+    max-height: 320px;
+    }
 }
 
